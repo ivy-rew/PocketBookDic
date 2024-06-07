@@ -58,7 +58,7 @@ $FileName = "dict/stardict-Webster_s_Unabridged_3-2.4.2/Webster_s_Unabridged_3.i
 # $BaseDir is the directory where converter.exe and the language folders reside.
 # Typically the language folders are named by two letters, e.g. english is named 'en'.
 # In each folder should be a collates.txt, keyboard.txt and morphems.txt file.
-our $BaseDir="/home/mark/Downloads/PocketbookDic";
+our $BaseDir="/home/lordeagle/dev/_kobo/myKoboSystem/dictionaryConvert/PocketBookDic";
 our $LocalPath = join('', $FileName=~ m~^(.+?)/[^/]+$~); # Default value
 our $FullPath = "$BaseDir/$LocalPath";                   # Default value
 
@@ -75,7 +75,7 @@ our $isTestingOn = 0; # Toggles intermediary output of xdxf-array.
 our ($cycle_dotprinter, $cycles_per_dot) = (0 , 300); # A green dot is printed achter $cycles_per_dot ar's have been processed.
 
 # Controls for Stardict dictionary creation and Koreader stardict compatabiltiy
-our $isCreateStardictDictionary = 0; # Turns on Stardict text and binary dictionary creation.
+our $isCreateStardictDictionary = 1; # Turns on Stardict text and binary dictionary creation.
 
 # Same Type Seqence is the initial value of the Stardict variable set in the ifo-file.
 # "h" means html-dictionary. "m" means text.
@@ -85,7 +85,7 @@ our $updateSameTypeSequence = 1; # If the Stardict files give a sametypesequence
 our $isConvertColorNamestoHexCodePoints = 1; # Converting takes time.
 
 # Controls for Pocketbook conversion
-our $isCreatePocketbookDictionary = 1; # Controls conversion to Pocketbook Dictionary dic-format
+our $isCreatePocketbookDictionary = 0; # Controls conversion to Pocketbook Dictionary dic-format
 
 # Force conversion of numbered sequences to characters.
 our $ForceConvertNumberedSequencesToChar = 1;
@@ -100,7 +100,7 @@ our $isHandleMobiDictionary = 1 ;
 our $isCreateMDict = 0;
 
 # Controls for recoding or deleting images and sounds.
-our $isConvertImagesUsingOCR          = 1; # Try to identify images as symbols whenever possible.
+our $isConvertImagesUsingOCR          = 0; # Try to identify images as symbols whenever possible.
 our $isCodeImageBase64                = 0; # Some dictionaries contain images. Encoding them as Base64 allows coding them inline. Only implemented with convertHTML2XDXF.
 our $ForceConvertBlockquote2Div       = 0;
 our $UseXMLTidy                       = 0; # Enables or disables the use of the subroutine tidyXMLArray. Still experimental, so disable.

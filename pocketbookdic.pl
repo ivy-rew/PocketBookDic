@@ -6,7 +6,7 @@ use open ':std', ':utf8';
 use feature 'unicode_strings'; # You get funky results with the sub convertNumberedSequencesToChar without this.
 use Time::HiRes qw/ time /;
 
-use lib '/home/mark/git/PocketBookDic/';
+use lib '/home/lordeagle/dev/_kobo/myKoboSystem/dictionaryConvert/PocketBookDic/';
 use DicGlobals;
 use Dic2Screen;
 use DicConversion;
@@ -14,6 +14,11 @@ use DicFileUtils;
 use DicHelpUtils;
 use DicPrepare;
 use DicControls;
+
+$isCreatePocketbookDictionary = 0;
+$isHandleMobiDictionary = 0;
+$isCreateStardictDictionary=1;
+$isCreatePocketbookDictionary=0;
 
 if ( $isTestingOn ){ use warnings; }
 

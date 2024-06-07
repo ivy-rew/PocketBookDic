@@ -44,6 +44,7 @@ our @EXPORT = (
     
  );
 
+our $isCreatePocketbookDictionary = 1;
 our $DebugKeyWordCleanseAr = '<k>φλέως</k>'; # In cleanseAr only extensive debug messages for this entry are shown. E.g. '<k>φλέως</k>'
 our $isCutDoneWithTidyXML             = 0; # Enables or disables the cutting of a line for the pocketbook dictionary in cleanseAr. Still experimental, so disable.
 our $isRemoveWaveReferences           = 1; # Removes all the references to wav-files Could be encoded in Base64 now.
@@ -298,13 +299,14 @@ sub loadXDXF{
             # Checklist
             if ($OperatingSystem eq "linux"){ debugV("Converting mobi to html on Linux is possible.") }
             else{ Die("Not Linux, so the script can't convert mobi-format. Quitting!"); }
-            my $python_version = `python --version`;
+            my $python_version = `python3 --version`;
             if(  substr($python_version, 0,6) eq "Python"){
                 debug("Found python responding as expected.");
             }
             else{ Die("Python binary not working as expected/not installed. Quitting!"); }
 
             # Conversion mobi to html
+            debug("checking: $OutputFolder/mobi7/$DictionaryName.html");
             if( -e "$OutputFolder/mobi7/$DictionaryName.html" ){
                 debug("html-file found. Mobi-file already converted.");
                 $HTMLConversion = 1;
